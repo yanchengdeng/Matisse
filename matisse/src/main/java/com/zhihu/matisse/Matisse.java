@@ -18,12 +18,16 @@ package com.zhihu.matisse;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.zhihu.matisse.internal.entity.Item;
 import com.zhihu.matisse.ui.MatisseActivity;
 
 import java.lang.ref.WeakReference;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -85,6 +89,11 @@ public final class Matisse {
         return data.getParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION);
     }
 
+
+    public static List<Item> obtainItemsResult(Intent data) {
+        return data.getParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_ITEM);
+    }
+
     /**
      * Obtain user selected media path list in the starting Activity or Fragment.
      *
@@ -106,6 +115,8 @@ public final class Matisse {
     public static boolean obtainOriginalState(Intent data) {
         return data.getBooleanExtra(MatisseActivity.EXTRA_RESULT_ORIGINAL_ENABLE, false);
     }
+
+
 
     /**
      * MIME types the selection constrains on.

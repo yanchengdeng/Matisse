@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import com.zhihu.matisse.engine.ImageEngine;
 import com.zhihu.matisse.filter.Filter;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
+import com.zhihu.matisse.internal.entity.Item;
 import com.zhihu.matisse.internal.entity.SelectionSpec;
 import com.zhihu.matisse.listener.OnCheckedListener;
 import com.zhihu.matisse.listener.OnSelectedListener;
@@ -37,6 +38,9 @@ import com.zhihu.matisse.ui.MatisseActivity;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_BEHIND;
@@ -141,6 +145,17 @@ public final class SelectionCreator {
         mSelectionSpec.countable = countable;
         return this;
     }
+
+    /**
+     * 如果使用拍照功能，则拍照后的照片放到 已选择相测后面
+     * @param append
+     * @return
+     */
+    public SelectionCreator appendSelected(boolean append) {
+        mSelectionSpec.isAppendSelected = append;
+        return this;
+    }
+
 
     /**
      * Maximum selectable count.
@@ -366,6 +381,16 @@ public final class SelectionCreator {
 
     public SelectionCreator showPreview(boolean showPreview) {
         mSelectionSpec.showPreview = showPreview;
+        return this;
+    }
+
+    /**
+     * @param uriList default selected  list
+     */
+    public SelectionCreator selectedItem(@NonNull List<Item> uriList) {
+        if (uriList.size() > 0) {
+            mSelectionSpec.selected = new HashSet<>(uriList);
+        }
         return this;
     }
 }
