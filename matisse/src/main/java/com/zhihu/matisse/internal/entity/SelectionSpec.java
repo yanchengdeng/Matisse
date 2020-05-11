@@ -58,10 +58,6 @@ public final class SelectionSpec {
     public int originalMaxSize;
     public OnCheckedListener onCheckedListener;
     public boolean showPreview;
-    //已选择的
-    public Set<Item> selected= new LinkedHashSet<>();
-    //是否将拍照和选择的相片拼接 默认false
-    public boolean isAppendSelected;
 
     private SelectionSpec() {
     }

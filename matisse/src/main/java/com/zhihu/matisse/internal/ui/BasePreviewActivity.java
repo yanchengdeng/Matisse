@@ -351,17 +351,10 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
         intent.putExtra(EXTRA_RESULT_BUNDLE, mSelectedCollection.getDataWithBundle());
         intent.putExtra(EXTRA_RESULT_APPLY, apply);
         intent.putExtra(EXTRA_RESULT_ORIGINAL_ENABLE, mOriginalEnable);
-
         ArrayList<Uri> selectedUris = (ArrayList<Uri>) mSelectedCollection.asListOfUri();
-        if (mSelectedCollection!=null && mSelectedCollection.mItems!=null && mSelectedCollection.mItems.size() > 0){
-            mSpec.selected = mSelectedCollection.mItems;
-            intent.putParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_ITEM,  new ArrayList<>(mSelectedCollection.mItems));
-        }
         intent.putParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION, selectedUris);
         ArrayList<String> selectedPaths = (ArrayList<String>) mSelectedCollection.asListOfString();
         intent.putStringArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_PATH, selectedPaths);
-
-
         setResult(Activity.RESULT_OK, intent);
     }
 

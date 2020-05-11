@@ -55,7 +55,6 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.zhihu).setOnClickListener(this);
         findViewById(R.id.dracula).setOnClickListener(this);
         findViewById(R.id.only_gif).setOnClickListener(this);
-        findViewById(R.id.wx).setOnClickListener(this);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -136,8 +135,6 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                         .autoHideToolbarOnSingleTap(true)
                         .forResult(REQUEST_CODE_CHOOSE);
                 break;
-            case R.id.wx:
-                startActivity(new Intent(SampleActivity.this, WxPhotoActivity.class));
             default:
                 break;
         }

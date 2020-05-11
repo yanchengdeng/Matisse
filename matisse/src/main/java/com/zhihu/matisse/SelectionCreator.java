@@ -146,15 +146,6 @@ public final class SelectionCreator {
         return this;
     }
 
-    /**
-     * 如果使用拍照功能，则拍照后的照片放到 已选择相测后面
-     * @param append
-     * @return
-     */
-    public SelectionCreator appendSelected(boolean append) {
-        mSelectionSpec.isAppendSelected = append;
-        return this;
-    }
 
 
     /**
@@ -384,13 +375,4 @@ public final class SelectionCreator {
         return this;
     }
 
-    /**
-     * @param uriList default selected  list
-     */
-    public SelectionCreator selectedItem(@NonNull List<Item> uriList) {
-        if (uriList.size() > 0) {
-            mSelectionSpec.selected = new HashSet<>(uriList);
-        }
-        return this;
-    }
 }

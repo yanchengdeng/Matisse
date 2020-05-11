@@ -65,17 +65,7 @@
             android:textColor="@android:color/white"
             android:theme="@style/ZhihuOverlay" />
 
-        <Button
-            android:id="@+id/wx"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/item_margin_horizontal"
-            android:layout_marginRight="@dimen/item_margin_horizontal"
-            android:minHeight="56dp"
-            android:text="仿照微信相册选择框"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:theme="@style/DraculaOverlay" />
+
 
         <TextView
             android:layout_width="match_parent"

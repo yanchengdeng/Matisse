@@ -90,9 +90,6 @@ public final class Matisse {
     }
 
 
-    public static List<Item> obtainItemsResult(Intent data) {
-        return data.getParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_ITEM);
-    }
 
     /**
      * Obtain user selected media path list in the starting Activity or Fragment.
