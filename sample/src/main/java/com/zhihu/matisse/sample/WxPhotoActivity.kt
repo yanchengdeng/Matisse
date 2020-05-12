@@ -114,9 +114,6 @@ class WxPhotoActivity : AppCompatActivity() {
                 val paths = Matisse.obtainPathResult(data)
                 imagesSelected = Matisse.obtainItemsResult(data)
                 var pathUris = Matisse.obtainResult(data)
-                if (paths.isEmpty()) {
-                    return
-                }
                 addItemImage?.setImageData(paths)
 
 
@@ -125,12 +122,8 @@ class WxPhotoActivity : AppCompatActivity() {
                 val paths = Matisse.obtainPathResult(data)
                 imagesSelected = Matisse.obtainItemsResult(data)
                 var pathUris = Matisse.obtainResult(data)
-                if (paths.isEmpty()) {
-                    return
-                }
                 addItemImage?.setImageData(paths)
             }
         }
     }
-
 }

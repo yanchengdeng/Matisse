@@ -45,6 +45,8 @@ import com.zhihu.matisse.listener.OnFragmentInteractionListener;
 import com.zhihu.matisse.ui.MatisseActivity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public abstract class BasePreviewActivity extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener, OnFragmentInteractionListener {
@@ -355,8 +357,11 @@ public abstract class BasePreviewActivity extends AppCompatActivity implements V
         ArrayList<Uri> selectedUris = (ArrayList<Uri>) mSelectedCollection.asListOfUri();
         if (mSelectedCollection!=null && mSelectedCollection.mItems!=null && mSelectedCollection.mItems.size() > 0){
             mSpec.selected = mSelectedCollection.mItems;
-            intent.putParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_ITEM,  new ArrayList<>(mSelectedCollection.mItems));
         }
+        if (selectedUris.isEmpty()){
+            mSpec.selected =new LinkedHashSet<>();
+        }
+        intent.putParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_ITEM,  new ArrayList<>( mSpec.selected));
         intent.putParcelableArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION, selectedUris);
         ArrayList<String> selectedPaths = (ArrayList<String>) mSelectedCollection.asListOfString();
         intent.putStringArrayListExtra(MatisseActivity.EXTRA_RESULT_SELECTION_PATH, selectedPaths);

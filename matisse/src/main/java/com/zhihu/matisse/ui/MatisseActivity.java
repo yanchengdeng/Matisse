@@ -371,8 +371,8 @@ public class MatisseActivity extends AppCompatActivity implements
             intent.putExtra(BasePreviewActivity.EXTRA_RESULT_ORIGINAL_ENABLE, mOriginalEnable);
             if (mSelectedCollection!=null && mSelectedCollection.mItems!=null && mSelectedCollection.mItems.size() > 0){
                 mSpec.selected = mSelectedCollection.mItems;
-                intent.putParcelableArrayListExtra(EXTRA_RESULT_SELECTION_ITEM,  new ArrayList<>(mSelectedCollection.mItems));
             }
+            intent.putParcelableArrayListExtra(EXTRA_RESULT_SELECTION_ITEM,  new ArrayList<>(mSpec.selected));
             startActivityForResult(intent, REQUEST_CODE_PREVIEW);
         } else if (v.getId() == R.id.button_apply) {
             Intent result = new Intent();
@@ -381,8 +381,8 @@ public class MatisseActivity extends AppCompatActivity implements
             ArrayList<String> selectedPaths = (ArrayList<String>) mSelectedCollection.asListOfString();
             if (mSelectedCollection!=null && mSelectedCollection.mItems!=null && mSelectedCollection.mItems.size() > 0){
                 mSpec.selected = mSelectedCollection.mItems;
-                result.putParcelableArrayListExtra(EXTRA_RESULT_SELECTION_ITEM,  new ArrayList<>(mSelectedCollection.mItems));
             }
+            result.putParcelableArrayListExtra(EXTRA_RESULT_SELECTION_ITEM,  new ArrayList<>(mSpec.selected));
             result.putStringArrayListExtra(EXTRA_RESULT_SELECTION_PATH, selectedPaths);
             result.putExtra(EXTRA_RESULT_ORIGINAL_ENABLE, mOriginalEnable);
             setResult(RESULT_OK, result);
